@@ -1,7 +1,7 @@
 # Test Driven Development
 import unittest
 
-from main import bewerte, InvalidSchnitzel
+from main import bewerte, InvalidSchnitzel, durchschnitt
 
 class TestMain(unittest.TestCase):
     
@@ -17,9 +17,9 @@ class TestMain(unittest.TestCase):
         # arrange
         zahl = 1
         # act
-        result = bewerte(zahl)
+        ergebnis = bewerte(zahl)
         # assert
-        self.assertEqual(result, "Mangelhaft")
+        self.assertEqual(ergebnis, "Mangelhaft")
         
     def test_eingabe_6_ist_nicht_gueltig(self):
         # arrange
@@ -38,6 +38,14 @@ class TestMain(unittest.TestCase):
     def test_durchschnittsbewertung(self):
         # arrange
         bewertungen = [3,5,1,2,4]
+        # act
+        result = durchschnitt(bewertungen)
+        # assert
+        self.assertEqual(result, 3.0)    
+        
+    def test_durchschnittsbewertung(self):
+        # arrange
+        bewertungen = [3,5,1,2,4,5,5]
         # act
         result = durchschnitt(bewertungen)
         # assert

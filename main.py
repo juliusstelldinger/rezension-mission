@@ -20,3 +20,13 @@ def bewerte(zahl):
         return bewertungsNamen[zahl]
     else:
         raise InvalidSchnitzel
+    
+def durchschnitt(zahlen):
+    summe = 0
+    laenge = 0
+    for x in zahlen:
+        summe += x
+        laenge += 1
+        
+    ergebnis = summe / laenge
+    return ergebnis
