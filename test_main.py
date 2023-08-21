@@ -35,5 +35,13 @@ class TestMain(unittest.TestCase):
         # assert
         self.assertRaises(InvalidSchnitzel, bewerte, input)
         
+    def test_durchschnittsbewertung(self):
+        # arrange
+        bewertungen = [3,5,1,2,4]
+        # act
+        result = durchschnitt(bewertungen)
+        # assert
+        self.assertEqual(result, 3.0)    
+        
 if __name__ == "__main__":
     unittest.main()
