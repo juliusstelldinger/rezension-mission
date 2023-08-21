@@ -28,6 +28,12 @@ class TestMain(unittest.TestCase):
         # assert
         self.assertRaises(InvalidSchnitzel, bewerte, zahl)
         
+    def test_string_eingabe_ungueltig(self):
+        # arrange
+        input = "3"
+        # act
+        # assert
+        self.assertRaises(InvalidSchnitzel, bewerte, input)
         
 if __name__ == "__main__":
     unittest.main()
