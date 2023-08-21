@@ -37,3 +37,30 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+        
+  deploy:
+  
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the files
+      uses: actions/checkout@v3
+    
+    - name: Deploy to Staging server
+      uses: easingthemes/ssh-deploy@main
+      with:
+        
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        
+        # TARGET: ${{ secrets.REMOTE_TARGET }}
+        SCRIPT_BEFORE: |
+          whoami
+          ls -al
+        SCRIPT_AFTER: |
+          whoami
+          ls -al
+          echo $RSYNC_STDOUT
+      
