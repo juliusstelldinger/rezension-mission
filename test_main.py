@@ -43,13 +43,13 @@ class TestMain(unittest.TestCase):
         # assert
         self.assertEqual(result, 3.0)    
         
-    def test_durchschnittsbewertung(self):
+    def test_durchschnittsbewertung_komplexer(self):
         # arrange
         bewertungen = [3,5,1,2,4,5,5]
         # act
         result = durchschnitt(bewertungen)
         # assert
-        self.assertEqual(result, 3.0)    
+        self.assertAlmostEqual(result, 3.57, 2)    
         
 if __name__ == "__main__":
     unittest.main()
