@@ -11,8 +11,12 @@ bewertungsNamen = {
 }
 
 def bewerte(zahl):
+    try:
+        zahl = int(zahl)
+    except(ValueError):
+        raise InvalidSchnitzel
+    
     if zahl > 0 and zahl <= 5:
         return bewertungsNamen[zahl]
-    
     else:
         raise InvalidSchnitzel
